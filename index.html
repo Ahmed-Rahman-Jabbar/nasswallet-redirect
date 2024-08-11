@@ -10,21 +10,11 @@
 
             // Check for iOS
             if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
-                // Try to open the app directly
-                window.location = "nasswallet://";
-                // Fallback to App Store if the app is not installed
-                setTimeout(function() {
                     window.location = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
-                }, 200); // 200ms delay to fallback to the App Store
             } 
             // Check for Android
             else if (/android|tablet/i.test(userAgent)) {
-                // Try to open the app directly
-                window.location = "nasswallet://";
-                // Fallback to Google Play if the app is not installed
-                setTimeout(function() {
                     window.location = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
-                }, 200); // 200ms delay to fallback to Google Play
             } 
             // Default to the website
             else {
@@ -33,9 +23,10 @@
         }
     </script>
 </head>
-<body ">
-<!--     <noscript>
+<<body onload="redirect()">
+    <noscript>
         <meta http-equiv="refresh" content="0;url=https://www.nasswallet.com">
-    </noscript> -->
+    </noscript>
+    
 </body>
 </html>
