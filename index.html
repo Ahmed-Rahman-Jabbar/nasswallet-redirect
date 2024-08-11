@@ -10,17 +10,21 @@
 
             // Check for iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = "nasswallet://"; // Custom URL scheme for iOS
+                // Try to open the app directly
+                window.location.href = "nasswallet://";
+                // If app is not installed, fallback to App Store after a delay
                 setTimeout(function() {
                     window.location.href = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
-                }, 500); // Redirect to the App Store if the app is not installed
+                }, 25); // Adjust delay if necessary
             } 
             // Check for Android
             else if (/android/i.test(userAgent)) {
-                window.location.href = "intent://nasswallet/#Intent;scheme=nasswallet;package=com.nasswallet.customer;end"; // Custom URL scheme for Android
+                // Try to open the app directly
+                window.location.href = "nasswallet://";
+                // If app is not installed, fallback to Google Play after a delay
                 setTimeout(function() {
                     window.location.href = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
-                }, 500); // Redirect to Google Play if the app is not installed
+                }, 25); // Adjust delay if necessary
             } 
             // Default to the website
             else {
