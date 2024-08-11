@@ -11,24 +11,24 @@
             // Check for iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 // Try to open the app directly
-                window.location.href = "nasswallet://";
-                // If app is not installed, fallback to App Store after a delay
+                window.location = "nasswallet://";
+                // Fallback to App Store if the app is not installed
                 setTimeout(function() {
-                    window.location.href = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
-                }, 25); // Adjust delay if necessary
+                    window.location = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
+                }, 200); // 200ms delay to fallback to the App Store
             } 
             // Check for Android
             else if (/android/i.test(userAgent)) {
                 // Try to open the app directly
-                window.location.href = "nasswallet://";
-                // If app is not installed, fallback to Google Play after a delay
+                window.location = "nasswallet://";
+                // Fallback to Google Play if the app is not installed
                 setTimeout(function() {
-                    window.location.href = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
-                }, 25); // Adjust delay if necessary
+                    window.location = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
+                }, 200); // 200ms delay to fallback to Google Play
             } 
             // Default to the website
             else {
-                window.location.href = "https://www.nasswallet.com";
+                window.location = "https://www.nasswallet.com";
             }
         }
     </script>
@@ -37,6 +37,5 @@
     <noscript>
         <meta http-equiv="refresh" content="0;url=https://www.nasswallet.com">
     </noscript>
-    
 </body>
 </html>
