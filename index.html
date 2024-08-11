@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=https://www.nasswallet.com" />
     <title>Nasswallet Redirect</title>
     <script>
         function redirect() {
@@ -11,21 +10,21 @@
 
             // Check for iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "nasswallet://"; // Custom URL scheme for iOS
                 setTimeout(function() {
                     window.location.href = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
-                }, 1000); // 1 second delay
+                }, 500); // Redirect to the App Store if the app is not installed
             } 
             // Check for Android
             else if (/android/i.test(userAgent)) {
+                window.location.href = "intent://nasswallet/#Intent;scheme=nasswallet;package=com.nasswallet.customer;end"; // Custom URL scheme for Android
                 setTimeout(function() {
                     window.location.href = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
-                }, 1000); // 1 second delay
+                }, 500); // Redirect to Google Play if the app is not installed
             } 
             // Default to the website
             else {
-                setTimeout(function() {
-                    window.location.href = "https://www.nasswallet.com";
-                }, 1000); // 1 second delay
+                window.location.href = "https://www.nasswallet.com";
             }
         }
     </script>
