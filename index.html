@@ -9,7 +9,7 @@
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             // Check for iOS
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 // Try to open the app directly
                 window.location = "nasswallet://";
                 // Fallback to App Store if the app is not installed
@@ -18,7 +18,7 @@
                 }, 200); // 200ms delay to fallback to the App Store
             } 
             // Check for Android
-            else if (/android/i.test(userAgent)) {
+            else if (/android|tablet/i.test(userAgent)) {
                 // Try to open the app directly
                 window.location = "nasswallet://";
                 // Fallback to Google Play if the app is not installed
