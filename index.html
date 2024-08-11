@@ -11,15 +11,21 @@
 
             // Check for iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
+                setTimeout(function() {
+                    window.location.href = "https://apps.apple.com/iq/app/nasswallet/id1511124150";
+                }, 1000); // 1 second delay
             } 
             // Check for Android
             else if (/android/i.test(userAgent)) {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
+                setTimeout(function() {
+                    window.location.href = "https://play.google.com/store/apps/details?id=com.nasswallet.customer";
+                }, 1000); // 1 second delay
             } 
             // Default to the website
             else {
-                window.location.href = "https://www.nasswallet.com";
+                setTimeout(function() {
+                    window.location.href = "https://www.nasswallet.com";
+                }, 1000); // 1 second delay
             }
         }
     </script>
